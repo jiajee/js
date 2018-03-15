@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+//js中的函数对象
+function fun1(){
+	alert("aaa");
+}
+alert(fun1.toString());
+//js中函数创建方式
+	//1.方式一  ==> 函数对象构造方法中，最后一个参数是定义函数体，之前所有的都是函数的参数
+	var fun2 = new Function("a,b","alert(a + b);");
+	function fun2(a, b) {
+		alert(a + b);
+	}
+	//2.方式二 ==>
+	var fun3 = function(a, b){
+		alert(a +　b);
+	}
+	//3.方式三
+	function fun4(a,b){
+		alert(a + b);
+	}	
+</script>
+
+</head>
+<body>
+
+
+</body>
+</html>

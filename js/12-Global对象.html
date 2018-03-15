@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	//利用三大包装类的构造函数进行类型转换
+	//6个方法   ==>关于解码，编码方法
+	//encodeURI 编码
+	//decodeURI  解码
+	var url = "http://www.baidu.com?name=张三"
+	var url2 = encodeURI(url);
+	alert(decodeURI(url2));
+	
+	//encodeURIComponent
+	//decodeURIComponent
+	alert(encodeURIComponent(url));
+	//escape  已过时
+	//unescape  已过时
+	
+	
+	//isNaN 判断某个值是否是NaN   NaN！=NaN //true
+	alert(isNaN(NaN));//true
+	
+	
+	//parseInt  转换成整数
+	//parseFloat 转换成浮点数
+	
+	var str = "123abc";
+	
+	//1.使用+
+	//2.使用new Number();
+	//3.parseInt
+	//区别：1.2两种转换属于将字符串整体转换，如果字符串包含转换不了的字符串返回NaN
+	//3从左到右能转换就转换
+	alert(+str); //NaN
+	alert(typeof parseInt(str)); //NaN
+	alert(parseInt(str));//123
+	alert(parseInt("abc123"));//NaN
+	
+	
+	//parseFloat 与上面parseInt一样，区别是支持转换小数
+	var str = "3.132423435";
+	alert(parseInt(str));//3
+	alert(parseFloat(str));//3.132423435
+	alert(parseFloat("3.132423.435"));//3.132423
+	
+	
+</script>
+</head>
+<body>
+
+
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+//1.对数组进行排序
+	var arr = [2,3,5,9,1];
+	//冒泡
+	function bubbleSort(arr){
+		for(var i = arr.length - 1; i > 0 ; i--) {
+			var isSort = true;
+			for(var j = 0; j < i; j++){
+				if(arr[j] > arr[j+1]) {
+					//var temp = arr[j];
+					//arr[j] = arr[j+1];
+					//arr[j+1] = temp;
+					arr = swap(arr, j, j+1);
+					isSort = false;
+				}
+			}
+			if(isSort) break;
+		}
+		return arr;
+	}
+	//alert(bubbleSort(arr).join(","));
+	
+		//数组arr，交换小表为index1和index2的数组的值
+	function swap(arr, index1, index2) {
+		if(arr instanceof Array) {
+			//var temp = arr[index1];
+			//arr[index1] = arr[index2];
+			//arr[index2] = temp;
+			arr[index1] ^= arr[index2];
+			arr[index2] ^= arr[index1];
+			arr[index1] ^= arr[index2];
+		}
+		return arr;
+	}
+		
+		
+	function selectSort(arr){
+		for(var i = arr.length - 1; i > 0; i--){
+			var largestindex = i;
+			for(var j =0; j < i; j++) {
+				if(arr[j] > arr[largestindex]){
+					largestindex = j;
+				}
+			}
+			if(i != largestindex) {
+				arr = swap(arr, i, largestindex);
+			}
+		}
+		return arr;
+	}
+	
+
+	//alert(selectSort(arr).join(","));
+	//打印9*9乘法表  ==>必须整齐工整
+	function multiTable(){
+		for(var i = 1; i < 10; i++){
+			for(var j = 1; j <=i; j++){
+				var result = i * j;
+				document.writeln(j + "*" + i +"=" + result);
+				if(i!=j) {
+					document.writeln("&nbsp;&nbsp;");
+				}else {
+					document.writeln("<br/>");
+				}
+			}
+			
+		}
+	}
+	//multiTable();
+	
+	//3.在页面中写一个猜数字的游戏
+		//随机很长0~100之间的随机数，让用户猜
+		//输入错误需要提示，并让用户重新输入
+		//输入整齐，提示正确，并询问是否要继续游戏
+		//显示提示alert()
+		//用户输入值
+			//var num = prompt("请输入一个值","123");
+		//确认框
+			//confirm("abc");
+		//窗口关闭
+			//window.close();
+ 		while(true){
+			document.writeln("欢迎来到猜数字游戏！！<br/>");
+			var randomNum = Math.round(Math.random()*100);
+			var num = prompt("请输入0~100范围的一个数字","");
+			while(true){
+				if(num < 0 && num > 100) {
+					alert("您输入的数字不在0~100范围内，麻烦从新输入。")
+					num = prompt("请输入0~100范围的一个数字","");
+				}
+				if(randomNum == num) {
+					alert("恭喜您答对了。");
+					if(confirm("您是否继续游戏？")) {
+						break;						
+					}else {
+						window.close();
+					}
+				}else if(num > randomNum){
+					alert("您猜数字大了！")
+				}else {
+					alert("您猜数字小了！")
+				}
+				num = prompt("请输入0~100范围的一个数字","");
+			}
+			
+		} 
+</script>
+</head>
+<body>
+
+
+</body>
+</html>

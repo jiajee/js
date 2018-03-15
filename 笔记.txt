@@ -1,0 +1,217 @@
+HTML  4.01版
+	概念
+		1.超文本  标记语言
+		2.是由浏览器解析
+		3.后缀名是 html 或 htm ,没有区别
+		4.用作展示页面
+	HTML中的标签
+		排版标签
+			<p>,<hr>,<br>,<pre>
+		字体标签
+			<font>,<hn>,<strike>,<u>,<b>
+		转义字符
+			&lt; , &gt; , &nbsp;
+		清单标签
+			有序列表:  ol  li
+			无序列表:  ul  li
+			定义列表:  dl  dt dd
+		超链接标签
+			<a>
+		图片标签
+			<img>
+		表格标签
+			<table>,<tr>,<td>,<th>
+		框架标签
+			frameset , frame
+		表单标签
+			form
+			input
+				type属性: text password radio checkbox submit file Reset hidden button image
+			select
+			textarea
+		meta标签
+			<meta>: Content-type , refresh
+CSS 2.0版
+	1.层叠样式表
+	2.都是W3C发布的.
+css与页面的结合方式
+	1>style属性
+	2>style标签
+	3>link引入
+css的选择器
+	1>标签选择器 标签名称{}
+	2>ID选择器   #ID{}
+	3>CLASS选择器 .CLASSName{}
+	4>选择器分组  选择器1,选择器2...{}
+	5>伪类选择器 link visited hover active
+语法:
+		注释: /* */
+		语法:选择器{
+			属性键:属性值;
+			属性键:属性值1 属性值2 ....;
+		}
+常见属性:
+	字体属性.
+	背景系列.
+	尺寸系列. width height
+	边框系列.
+	边距系列.
+		内边距 padding
+		外边距 margin
+		
+//--------------------------------------------------------------------------
+	JS
+1.JS的历史
+	js是面向对象的语言.
+		1.封装
+		2.继承
+		3.多态
+		4.聚集 -> 对象中具有引用其他对象的能力.
+	js使用中绝大多数情况不需要进行面向对象的设计.跟多情况是使用已经设计好准备好的对象.
+基于对象的语言.
+2.JS的引入
+	1>页面中直接在script标签中书写
+	2>在script标签中引入
+	注意:
+		1>script标签位置任意. 但是 位置越靠前,执行越早.(重要,记住)
+		2>js外部文件推荐扩展名是.js.但是其实任何后缀名都可以.
+		3>使用script标签引入外部文件,那么该script标签中就不要书写js代码了.
+3.JS的基本语法
+	 //1 变量声明
+		var num = 10;
+		var str = 'haha';//"haha" 没有区别
+		//变量声明使用var
+		//变量区分大小写  str 和 STR 不是同一个变量
+		//字符串使用  双引号 或 单引号包裹 都可以.
+		//变量的类型可以随时改变.
+		//命名规则==>匈牙利标记法
+	 //2 行尾使用";" 作为一行的结束符号.(可以没有";",以折行符(回车)作为一行的结尾.)(不推荐)
+		var num2 = 20
+	 //3 js中的注释有两种 单行,多行
+		// 单行注释"//"
+		// 多行注释 "/* */"
+		// 没有文档注释
+	 //4 封装代码块 与 java一样,使用{}.
+	 //5 变量声明时,前缀var 也不是必须的.
+		 //加var 和 不加 var 有什么区别?
+		 // 如果不使用var,那么该变量是全局变量
+4.JS的类型
+	//java ==> 基本数据类型 和 引用数据类型.
+	//js中 类型也分为两种 ==>  原始数据类型 和 对象数据类型. 与java一模一样.
+	//java中 基本数据类型有哪些? byte short int long  float double boolean char
+	//js中 原始数据类型有哪些? 
+		number(数字,浮点型,整型) 
+		string(js语言的突破,没有char类型.)
+		boolean
+		null  (用来标示引用数据类型的占位符.通常都是人为赋值.)var person = null;
+		undefined  (由null衍生出来的值,是当我们声明一个变量,) 
+			//1.没有给该变量初始化值,那么系统会默认赋值为undefined
+			//2.函数中没有返回值,那么默认返回undefined
+		原始数据类型 判断符:
+			typeof ==> 用来判断一个变量是哪种原始类型的.
+			//为什么null返回object?
+				//是js中的一个bug,这个bug 被认为很贴切.所以保留了该bug.
+5.JS中的语句
+	//java中有哪些语句?
+		//循环: for while-do  do-while
+		//判断: if switch
+	//js中语句 与java中一模一样!
+		//特殊: java中的增强for循环在js中没有.
+		//		js中有for(var xxx in xxx) 语句. ==> 用的很少,用来遍历对象的属性.
+6.JS中运算符
+	一元运算符
+		void==>放到后面,学完函数讲
+	一元加法,减法
+		var a = +1;
+		var b = -1;
+		在js中的高级应用.
+		var c = +"1";  //这样写是在进行类型转换
+		var d = +"abc"; // 这样写会转换失败,返回number中的特殊值 NaN.
+	Boolean 运算符 ! && ||
+		js中自动类型转换.
+				//转换规律 (重点)
+				//string ==>  ""==>转换为false 其他都为true;
+				//number ==>  除了NaN,+0和-0.其他都转换为true.
+				//null ==>  false
+				//undefined ==> false
+		//NaN特性:
+			//NaN参与的任何boolean运算返回值都是false. 除了!=
+		//因为undefined是null衍生出的,所以 
+			alert(undefined == null);// true
+	比较运算符
+			alert(11>3);//true
+			//当运算符两端 , 一端是数字,一端是其他类型时, 其他类型会自动向数字类型转换
+			alert("11">3);// true
+			alert(11>"3");//true
+			//字符串在进行比较时 ,规律是: 比较首字符asc码. 如果一样,比较第2位...
+			alert("11">"3");// false
+			alert("11">"1");// true
+			alert("abc">11);//false
+	等性运算符  == != ===
+		全等于: === ==> 比较时包括类型.
+	
+ECMAScript中的对象
+	1.Object ==> 知道他是所有对象的超类. 
+	2.Function对象
+		//1> Function的创建
+			 方式1:var fun1 = new Function("a","b","alert(a+b);");
+			 方式2:var fun2 = function (a,b){alert(a+b);}
+			 方式3:function fun3(a,b){alert(a+b)}
+		  2>Function的调用 ==> js中函数的调用只看函数名称.
+			调用时内置对象arguments
+					arguments代表 函数运行期间实际参数列表.
+					arguments.length ==> 实际参数个数
+					arguments[0] ==> 第一个参数.
+			应用: arguments 实现函数的重载.
+		  3> 函数的返回
+			1>如果函数没有显示指定返回值 那么函数返回值为undefined.
+			2>//使用return 关键字,返回内容
+			3>return 关键字,在js中也可以作为结束方法运行的功能.
+			4>void运算符的应用.
+ECMAScript中对对象的分类
+			本地对象
+				内建对象 ==> 不需要创建实例.直接使用 Global  Math
+			主机对象 ==> DOM BOM 两部分.
+ECMAScript中3个包装对象.
+			String Number Boolean
+		伪对象: string number boolean 这3个原始类型可以看作是伪对象, 能直接调用包装对象的方法和属性.
+	String对象
+		属性
+			length
+		方法
+			//1 没用的方法
+			/* alert(str1.big());
+			alert(str1.sub()); 
+			alert(str1.bold());*/
+		//2 重要的方法
+			//indexOf
+			//lastIndexOf
+			//charAt 
+			//alert(str1.charAt(0));//a
+			//charCodeAt 返回所在字符的asc码
+			//alert(str1.charCodeAt(0));//97
+			//subString 
+			alert(str1.substring(0, 1));//a 
+			//slice 支持负数. 从右往左.
+			alert(str1.slice(0, -1));//a
+		//3 与正则结合的方法(正则对象讲完回来看.)
+			//split
+			//replace
+			//match
+			//search
+3个包装对象做类型转换
+
+instanceof运算符.
+	
+//------------------------------------------------------------------------------
+	Global对象
+不需要创建实例直接使用即可.
+	
+	
+	
+			
+	
+	
+		
+		
+			

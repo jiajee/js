@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	//Array对象
+	//1.创建方式
+		//a.创建方式1   创建一个数组并赋值
+		var arr1 = [1,2,3];
+		//b.创建方式1  创建一个数组并赋值
+		var arr2 = new Array(1,2,3);
+	    //c.创建方式3
+	    var arr3 = new Array(3);//创建一个长度为3的数组，如果只有一个参数
+	//2.属性
+	//alert(arr1.length);
+	//alert(arr2.length);
+	///alert(arr3.length);
+	//js中数组的特点：
+		//1.js中的数组，类型任意
+		//2.数组的长度不是固定的，用到哪里就有多长
+		arr3[9] = 10;
+		//alert(arr3.length);
+		//alert(arr3[5]);undefined
+	//3.方法
+		//join方法 ==>将数组中的每个元素返回一个字符串，分隔符为"-"
+		//alert(arr2.join("-"));//使用该方法可以模拟一个StringBuilder
+		//reverse方法 ==>将数组中的元素顺序导致
+		//sort方法 ==>排序的方法
+		//注意：该方法默认排序规则，安装字符串规则排序
+		//如果需要安装数字排序需要准备一个比较器
+		var arr5 = [2,4,6,7,200,43,54];
+		alert(arr5.sort(abc));
+		
+		//函数对象==>比较器
+		function abc(a,b){
+		/* 	if(a > b) {
+				return 1;
+			}else if(a == b) {
+				return 0;
+			}else {
+				return -1;
+			} */
+			return a - b;
+		}
+</script>
+</head>
+<body>
+
+
+</body>
+</html>

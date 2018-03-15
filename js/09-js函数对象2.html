@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	//函数返回值
+	//如果函数没有显示指定返回值，那么函数返回值为undefined
+	function fun1(){
+		alert(fun1());
+	}
+	
+	//使用return 关键字，返回内容
+	function fun2(a, b){
+		return a +　b;
+	}
+	alert(fun2(1,3));
+	//return关键字，在js中也可以作为结束方法运行的功能
+	function fun3(){
+		alert("aaa");
+		return ;
+		alert("bbb");
+	}
+	fun3();//aaa
+	
+	
+	//运算符  void()的使用
+	//用来拦截函数的返回值
+	alert(void(func2(1,2)));//undefined
+</script>
+	//使用void不会跳转到func2（2,3）返回值页面
+	<a href="javaScript:void(fun2(2,3))">点我</a>
+	<br/>
+	//把a便签的href给阉割掉
+	<a href="javaScript:void(0)" onclick="">点我</a>
+	
+</head>
+<body>
+
+
+</body>
+</html>
