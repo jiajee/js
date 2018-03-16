@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-Type" content="text/html;charset=UTF-8" >
+<title>Insert title here</title>
+</head>
+<body>
+	<input type="text" size="30" id="one">
+	<input type="button"  id="two" value="开始" onclick="fun1();">
+	<input type="button"  id="three" value="结束" onclick="fun2();">
+</body>
+<script type="text/javascript">
+var ID;
+	//使用seetTimeout实现页面时钟
+	function fun1(){
+		if(!ID) {
+			getTime();
+		}
+	}
+	
+	function getTime(){
+		//1.获得input输入框
+			var one = document.getElementById("one");
+		//2.创建出当前时间的Date()对象
+		var date = new Date;
+		//3.将时间添加到input中
+		one.value = date.toLocaleString();
+		//4.调用自己 setTimeout(getTime, 1000)
+		ID = setTimeout(getTime, 1000);
+	}
+	
+	function fun2(){
+		clearTimeout(ID);
+		ID = undefined;
+	}
+</script>
+</html>

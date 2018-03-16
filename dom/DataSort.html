@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>表格中的数据排序</title>
+<style type="text/css">
+table {
+	border:#0099FF 1px solid;
+	border-collapse:collapse;
+	width:600px;
+	}
+	
+table td{
+	border:#0099FF 1px solid;
+	text-align:center;
+	}
+	
+#age:link,#age.visited {
+	color:#000000;
+	}
+</style>
+
+<script type="text/javascript">
+function sortAge(){
+	//1.获得表格中所有的行
+		var table = document.getElementsByTagName("table")[0];
+		//table.getElementsByTagName("tr");
+		var rows = table.rows;
+	//2.创建一个新的数组,将需要排序的行装入.
+		var arr = [];
+		for(var i = 1; i< rows.length ; i ++ ){
+			arr[i-1] = rows[i];
+		}
+	//3.对新的数组排序
+		arr.sort(abc);
+	//4.排序好的数组遍历插回表格中.
+	for(var i = 0 ; i < arr.length ; i++){
+		table.appendChild(arr[i]);
+	}
+}
+
+//比较器
+	function abc(a,b){
+	return +a.cells[1].innerHTML-b.cells[1].innerHTML;
+}
+
+
+</script>
+</head>
+
+
+<body>
+<table align="center">
+	<tr>
+		<th>姓名</th>
+		<th><a href="javascript:void(0)" onclick="sortAge()">年龄</a></th>
+		<th>地址</th>
+	</tr>
+	<tr>
+		<td>张三</td>
+		<td>25</td>
+		<td>北京</td>
+	</tr>
+	<tr>
+		<td>李四</td>
+		<td>23</td>
+		<td>天津</td>
+	</tr>
+	<tr>
+		<td>王八</td>
+		<td>122</td>
+		<td>上海</td>
+	</tr>
+	<tr>
+		<td>王五</td>
+		<td>28</td>
+		<td>上海</td>
+	</tr>
+	<tr>
+		<td>赵六</td>
+		<td>26</td>
+		<td>南京</td>
+	</tr>
+	<tr>
+		<td>周七</td>
+		<td>22</td>
+		<td>上海</td>
+	</tr>
+	
+</table>
+</body>
+</html>

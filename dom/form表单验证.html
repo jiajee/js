@@ -1,0 +1,171 @@
+<html>
+<head>
+<title>01-表单验证</title>
+<meta http-equiv="content-type" content="text/html;charset=GBK">
+<style type="text/css">
+tr {
+	width: 210px;
+}
+
+td {
+	width: 150px;
+}
+
+th {
+	width: 60px;
+}
+</style>
+</head>
+<body>
+	<form action="#" method="get" onsubmit="return check();" name="form1">
+		<table border="1px" align="center" style="width: 800px">
+			<tr>
+				<th colspan="2">用户注册</th>
+
+			</tr>
+			<tr>
+				<th>用户名</th>
+				<td><input type="text" name="userName" /></td>
+			</tr>
+			<tr>
+				<th>密码</th>
+				<td><input type="password" name="password" /></td>
+			</tr>
+			<tr>
+				<th>确认密码</th>
+				<td><input type="password" name="rePassword" /></td>
+			</tr>
+			<tr>
+				<th>年龄</th>
+				<td><input type="text" name="age" /></td>
+			</tr>
+			<tr>
+				<th>性别</th>
+				<td><input type="radio" name="sex" value="1" checked />男<input
+					type="radio" name="sex" value="0" />女</td>
+			</tr>
+			<tr>
+				<th>爱好</th>
+				<td><input type="checkbox" name="habit" value="0" />抽烟<input
+					type="checkbox" name="habit" value="1" />喝酒<input type="checkbox"
+					name="habit" value="2" />烫头</td>
+			</tr>
+			<tr>
+				<th>学历</th>
+				<td><select name="education">
+						<option value="" selected>-请选择-</option>
+						<option value="0">大专</option>
+						<option value="1">本科</option>
+						<option value="2">硕士</option>
+				</select></td>
+			</tr>
+			<tr>
+				<th colspan="2"><input type="submit" value="注册" /></th>
+
+			</tr>
+		</table>
+	</form>
+
+</body>
+</html>
+<script type="text/javascript">
+	//当离开焦点时验证
+	document.form1.userName.onblur = function() {
+		return checkUserName();
+	}
+	document.form1.age.onblur = function(){
+		checkAge();
+	}
+	
+	
+	
+	
+	//验证年龄
+	function checkAge() {
+		//年龄1~120岁
+		//1.得到年龄，年龄不能为空
+		var age = document.form1.age.value;
+		//2.判断年龄是否在1~120岁
+		var age = parseInt(age);
+		if (age > 0 && age <= 120) {
+			removeError(document.form1.age);
+			return true;
+		} else {
+			//非法年龄	
+			addError(document.form1.age, "&nbsp;年龄范围为1~120岁之间。");
+			return false;
+		}
+
+	}
+
+	//验证学历
+	function checkEdu() {
+		//1 获得select对象
+		var select = document.form1.education;
+		//2 获得选中的option 索引
+		var index = select.selectIndex;
+		//3 判断索引是否为0
+		if (!index) {
+			addError(select, "&nbsp;前选择学历!");
+			return false;
+		} else {
+			removeError(select);
+			return true;
+		}
+
+	}
+
+	//验证用户名
+	function checkUserName() {
+		//1 获得要验证的用户名
+		var userName = document.form1.userName.value;
+		//2 定义正则表达式 ==> 首字符不能使用数字,长度在6到10之间
+		var nameReg = /^[a-zA-Z][a-zA-Z0-9_]{5,9}$/;
+		//3 验证
+		if (nameReg.test(userName)) {
+			//删除错误消息
+			removeError(document.form1.userName);
+			return true;
+		} else {
+			//失败 ==> 提示,拦截提交(return false)
+			//alert("首字符不能使用数字,长度在6到10之间!");
+			addError(document.form1.userName, "首字符不能使用数字,长度在6到10之间!")
+			return false;
+		}
+	}
+
+	//移除错误消息
+	function removeError(where) {
+		//1.找到错误消息
+		var font = where.parentNode.getElementsByTagName("font")[0];
+		//2.移除
+		if (font) {
+			font.parentNode.removeChild(font);
+		}
+	}
+
+	//表单提交时调用
+	function check() {
+
+		return checkEdu();
+
+	}
+
+	//添加错误消息
+	function addError(where, what) {
+		//0.判断是否存在错误消息,
+		if (where.parentNode.getElementsByTagName("font").length > 0) {
+			//如果存在，直接return
+			return;
+		}
+		//1.创建一个font元素对象
+		var font = document.createElement("font");
+		//2.添加属性color="red"
+		font.setAttribute("color", "red");
+		//3.添加内容innerHTML
+		font.innerHTML = what;
+		//4.添加到input后面
+		where.parentNode.append(font);
+
+	}
+</script>
